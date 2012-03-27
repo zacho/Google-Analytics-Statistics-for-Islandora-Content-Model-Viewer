@@ -34,3 +34,12 @@ function getStats() {
 		}
 	});
 }
+
+$(document).ready(function() {
+	var path = window.location.pathname;
+	if (path.indexOf("islandora/solr/search") != -1) {
+		var re = new RegExp("/islandora/solr/search/([^/]*)/?(.*)?");
+		var m = path.match(re);
+		_gaq.push(['_trackPageview', '/islandora/solr/search/?q='+m[1]]);
+	}
+});
